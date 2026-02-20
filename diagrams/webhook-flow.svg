@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arr-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f44336"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="400" fill="url(#bg3)" rx="12"/>
+
+  <text x="450" y="38" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">GitHub Webhook → OpenShift Build Trigger</text>
+  <text x="450" y="58" text-anchor="middle" fill="#4fc3f7" font-size="12">How a git push becomes a running build</text>
+
+  <!-- Step boxes -->
+  <!-- 1. Developer -->
+  <rect x="30" y="90" width="130" height="80" rx="8" fill="#24292e" stroke="#4fc3f7" stroke-width="1.5"/>
+  <text x="95" y="118" text-anchor="middle" fill="#fff" font-size="28">👨‍💻</text>
+  <text x="95" y="143" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">Developer</text>
+  <text x="95" y="158" text-anchor="middle" fill="#aaa" font-size="10">git push</text>
+  <text x="95" y="185" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="600">① Push Code</text>
+
+  <line x1="162" y1="130" x2="198" y2="130" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 2. GitHub -->
+  <rect x="200" y="90" width="130" height="80" rx="8" fill="#24292e" stroke="#4fc3f7" stroke-width="1.5"/>
+  <text x="265" y="115" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">GitHub</text>
+  <text x="265" y="133" text-anchor="middle" fill="#aaa" font-size="10">KadirSoft/ruby-ex</text>
+  <text x="265" y="148" text-anchor="middle" fill="#aaa" font-size="10">Receives push event</text>
+  <text x="265" y="163" text-anchor="middle" fill="#aaa" font-size="10">Fires webhook POST</text>
+  <text x="265" y="185" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="600">② Webhook Fires</text>
+
+  <line x1="332" y1="130" x2="368" y2="130" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 3. OpenShift API -->
+  <rect x="370" y="90" width="160" height="80" rx="8" fill="#1a1a2e" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="450" y="115" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">OpenShift API</text>
+  <text x="450" y="133" text-anchor="middle" fill="#aaa" font-size="10">api.ocp30.ocppoc.net</text>
+  <text x="450" y="148" text-anchor="middle" fill="#aaa" font-size="10">Validates secret ✅</text>
+  <text x="450" y="163" text-anchor="middle" fill="#aaa" font-size="10">Checks RBAC ✅</text>
+  <text x="450" y="185" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="600">③ Validates Request</text>
+
+  <line x1="532" y1="130" x2="568" y2="130" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- 4. Build -->
+  <rect x="570" y="90" width="130" height="80" rx="8" fill="#cc0000" stroke="#ff6b6b" stroke-width="1.5"/>
+  <text x="635" y="115" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">New Build</text>
+  <text x="635" y="133" text-anchor="middle" fill="#ffcccc" font-size="10">ruby-ex-N created</text>
+  <text x="635" y="148" text-anchor="middle" fill="#ffcccc" font-size="10">Build pod spawned</text>
+  <text x="635" y="163" text-anchor="middle" fill="#ffcccc" font-size="10">S2I runs assemble</text>
+  <text x="635" y="185" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">④ Build Triggered</text>
+
+  <line x1="702" y1="130" x2="738" y2="130" stroke="#4caf50" stroke-width="2" marker-end="url(#arr-green)"/>
+
+  <!-- 5. Success -->
+  <rect x="740" y="90" width="130" height="80" rx="8" fill="#1a472a" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="805" y="115" text-anchor="middle" fill="#fff" font-size="11" font-weight="600">✅ Success</text>
+  <text x="805" y="133" text-anchor="middle" fill="#a5d6a7" font-size="10">Image pushed</text>
+  <text x="805" y="148" text-anchor="middle" fill="#a5d6a7" font-size="10">ImageStream updated</text>
+  <text x="805" y="163" text-anchor="middle" fill="#a5d6a7" font-size="10">App redeployed</text>
+  <text x="805" y="185" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">⑤ Live!</text>
+
+  <!-- Common Errors section -->
+  <rect x="30" y="220" width="840" height="155" rx="10" fill="#1a0000" stroke="#f44336" stroke-width="1.5"/>
+  <rect x="30" y="220" width="840" height="30" rx="10" fill="#b71c1c"/>
+  <text x="450" y="241" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">⚠️ Common Webhook Errors &amp; Fixes</text>
+
+  <!-- Error columns -->
+  <rect x="50" y="262" width="240" height="95" rx="6" fill="#2a0000" stroke="#f44336" stroke-width="1"/>
+  <text x="170" y="281" text-anchor="middle" fill="#f44336" font-size="11" font-weight="600">403 Forbidden</text>
+  <text x="170" y="297" text-anchor="middle" fill="#aaa" font-size="10">secret mismatch or</text>
+  <text x="170" y="311" text-anchor="middle" fill="#aaa" font-size="10">missing RBAC</text>
+  <text x="170" y="328" text-anchor="middle" fill="#4fc3f7" font-size="10">Fix: oc policy add-role-to-user</text>
+  <text x="170" y="342" text-anchor="middle" fill="#4fc3f7" font-size="10">system:webhook system:anonymous</text>
+
+  <rect x="330" y="262" width="240" height="95" rx="6" fill="#2a0000" stroke="#f44336" stroke-width="1"/>
+  <text x="450" y="281" text-anchor="middle" fill="#f44336" font-size="11" font-weight="600">400 Bad Request</text>
+  <text x="450" y="297" text-anchor="middle" fill="#aaa" font-size="10">wrong Content-Type</text>
+  <text x="450" y="311" text-anchor="middle" fill="#aaa" font-size="10">not application/json</text>
+  <text x="450" y="328" text-anchor="middle" fill="#4fc3f7" font-size="10">Fix: GitHub Webhook Settings →</text>
+  <text x="450" y="342" text-anchor="middle" fill="#4fc3f7" font-size="10">Content type: application/json</text>
+
+  <rect x="610" y="262" width="240" height="95" rx="6" fill="#2a0000" stroke="#f44336" stroke-width="1"/>
+  <text x="730" y="281" text-anchor="middle" fill="#f44336" font-size="11" font-weight="600">FetchSourceFailed</text>
+  <text x="730" y="297" text-anchor="middle" fill="#aaa" font-size="10">commit hash not found</text>
+  <text x="730" y="311" text-anchor="middle" fill="#aaa" font-size="10">wrong git URI in BuildConfig</text>
+  <text x="730" y="328" text-anchor="middle" fill="#4fc3f7" font-size="10">Fix: oc patch buildconfig</text>
+  <text x="730" y="342" text-anchor="middle" fill="#4fc3f7" font-size="10">update git.uri to YOUR fork</text>
+</svg>
