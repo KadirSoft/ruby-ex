@@ -15,7 +15,7 @@ spec:
   runPolicy: Serial
   source:
     git:
-      uri: https://github.com/YOUR_USERNAME/ruby-ex.git  # ← update this
+      uri: https://github.com/KadirSoft/ruby-ex.git
     type: Git
   strategy:
     type: Source
@@ -29,10 +29,10 @@ spec:
       kind: ImageStreamTag
       name: ruby-ex:latest
   triggers:
-  - type: ConfigChange
-  - type: ImageChange
-    imageChange: {}
   - type: GitHub
     github:
       secretReference:
-        name: github-webhook-secret  # ← we'll create this Secret separately
+        name: github-webhook-secret
+  - type: ConfigChange
+  - type: ImageChange
+    imageChange: {}
