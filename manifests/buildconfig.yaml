@@ -1,0 +1,38 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: ruby-ex
+    app.kubernetes.io/component: ruby-ex
+    app.kubernetes.io/instance: ruby-ex
+  name: ruby-ex
+  namespace: myproject
+spec:
+  failedBuildsHistoryLimit: 5
+  successfulBuildsHistoryLimit: 5
+  runPolicy: Serial
+  source:
+    git:
+      uri: https://github.com/YOUR_USERNAME/ruby-ex.git  # ← update this
+    type: Git
+  strategy:
+    type: Source
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: ruby:3.0-ubi9
+        namespace: openshift
+  output:
+    to:
+      kind: ImageStreamTag
+      name: ruby-ex:latest
+  triggers:
+  - type: ConfigChange
+  - type: ImageChange
+    imageChange: {}
+  - type: GitHub
+    github:
+      secretReference:
+        name: github-webhook-secret  # ← we'll create this Secret separately

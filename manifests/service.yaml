@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  labels:
+    app: ruby-ex
+    app.kubernetes.io/component: ruby-ex
+    app.kubernetes.io/instance: ruby-ex
+  name: ruby-ex
+  namespace: myproject
+spec:
+  ports:
+  - name: 8080-tcp
+    port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    deployment: ruby-ex
+  type: ClusterIP
