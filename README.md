@@ -19,6 +19,22 @@
 
 ---
 
+## Visual Diagrams
+
+### Full CI/CD Pipeline
+![CI/CD Flow](diagrams/cicd-flow.svg)
+
+### BuildConfig Anatomy
+![BuildConfig Anatomy](diagrams/buildconfig-anatomy.svg)
+
+### GitHub Webhook Flow
+![Webhook Flow](diagrams/webhook-flow.svg)
+
+### ArgoCD GitOps Flow
+![ArgoCD Flow](diagrams/argocd-flow.svg)
+
+---
+
 ## Project Structure
 
 ```
