@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arr-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef7b4d"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" fill="url(#bg)" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Vault + ESO Secret Management Architecture</text>
+  <text x="450" y="58" text-anchor="middle" fill="#ef7b4d" font-size="12">Secrets never touch Git — Vault is the source of truth</text>
+
+  <!-- Vault Box -->
+  <rect x="30" y="90" width="220" height="240" rx="10" fill="#1a0a00" stroke="#ef7b4d" stroke-width="2"/>
+  <rect x="30" y="90" width="220" height="32" rx="10" fill="#bf360c"/>
+  <text x="140" y="113" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">HashiCorp Vault</text>
+  <text x="140" y="138" text-anchor="middle" fill="#ffcc80" font-size="11">vault-0 pod (vault namespace)</text>
+  <text x="140" y="153" text-anchor="middle" fill="#aaa" font-size="10">Storage: inmem (dev mode)</text>
+
+  <rect x="48" y="165" width="184" height="45" rx="6" fill="#2a1500" stroke="#ef7b4d" stroke-width="1"/>
+  <text x="140" y="183" text-anchor="middle" fill="#ffcc80" font-size="10" font-weight="600">KV Secrets Engine (v2)</text>
+  <text x="140" y="198" text-anchor="middle" fill="#aaa" font-size="10">path: secret/</text>
+
+  <rect x="48" y="218" width="184" height="55" rx="6" fill="#2a1500" stroke="#ef7b4d" stroke-width="1"/>
+  <text x="140" y="236" text-anchor="middle" fill="#ffcc80" font-size="10" font-weight="600">secret/openshift/github-oauth</text>
+  <text x="140" y="251" text-anchor="middle" fill="#aaa" font-size="10">clientSecret: ●●●●●●●●●●●●</text>
+  <text x="140" y="265" text-anchor="middle" fill="#4caf50" font-size="10">✅ Encrypted at rest</text>
+
+  <rect x="48" y="281" width="184" height="35" rx="6" fill="#2a1500" stroke="#4caf50" stroke-width="1"/>
+  <text x="140" y="297" text-anchor="middle" fill="#81c784" font-size="10" font-weight="600">Policy: eso-policy</text>
+  <text x="140" y="310" text-anchor="middle" fill="#aaa" font-size="10">read: secret/data/openshift/*</text>
+
+  <!-- ESO Box -->
+  <rect x="330" y="90" width="240" height="240" rx="10" fill="#0a1a2a" stroke="#0288d1" stroke-width="2"/>
+  <rect x="330" y="90" width="240" height="32" rx="10" fill="#01579b"/>
+  <text x="450" y="113" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">External Secrets Operator</text>
+  <text x="450" y="138" text-anchor="middle" fill="#81d4fa" font-size="11">external-secrets namespace</text>
+
+  <rect x="348" y="152" width="204" height="50" rx="6" fill="#0a2a3a" stroke="#0288d1" stroke-width="1"/>
+  <text x="450" y="171" text-anchor="middle" fill="#81d4fa" font-size="10" font-weight="600">ClusterSecretStore</text>
+  <text x="450" y="186" text-anchor="middle" fill="#aaa" font-size="10">vault-backend</text>
+  <text x="450" y="199" text-anchor="middle" fill="#4caf50" font-size="10">STATUS: Valid ✅</text>
+
+  <rect x="348" y="212" width="204" height="65" rx="6" fill="#0a2a3a" stroke="#0288d1" stroke-width="1"/>
+  <text x="450" y="231" text-anchor="middle" fill="#81d4fa" font-size="10" font-weight="600">ExternalSecret</text>
+  <text x="450" y="246" text-anchor="middle" fill="#aaa" font-size="10">github-oauth-secret</text>
+  <text x="450" y="260" text-anchor="middle" fill="#aaa" font-size="10">namespace: openshift-config</text>
+  <text x="450" y="274" text-anchor="middle" fill="#4caf50" font-size="10">refreshInterval: 1h ✅</text>
+
+  <rect x="348" y="287" width="204" height="30" rx="6" fill="#0a1a2a" stroke="#4caf50" stroke-width="1"/>
+  <text x="450" y="307" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">STATUS: SecretSynced ✅</text>
+
+  <!-- K8s Secret Box -->
+  <rect x="650" y="90" width="220" height="240" rx="10" fill="#1a1a2e" stroke="#7c4dff" stroke-width="2"/>
+  <rect x="650" y="90" width="220" height="32" rx="10" fill="#4527a0"/>
+  <text x="760" y="113" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Kubernetes Secret</text>
+  <text x="760" y="138" text-anchor="middle" fill="#b39ddb" font-size="11">openshift-config namespace</text>
+
+  <rect x="668" y="152" width="184" height="65" rx="6" fill="#2a1a4a" stroke="#7c4dff" stroke-width="1"/>
+  <text x="760" y="171" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">github-oauth-secret</text>
+  <text x="760" y="186" text-anchor="middle" fill="#aaa" font-size="10">type: Opaque</text>
+  <text x="760" y="200" text-anchor="middle" fill="#aaa" font-size="10">data.clientSecret: ●●●●●●</text>
+  <text x="760" y="213" text-anchor="middle" fill="#4caf50" font-size="10">Auto-created by ESO ✅</text>
+
+  <rect x="668" y="227" width="184" height="50" rx="6" fill="#2a1a4a" stroke="#7c4dff" stroke-width="1"/>
+  <text x="760" y="246" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">Referenced by OAuth</text>
+  <text x="760" y="261" text-anchor="middle" fill="#aaa" font-size="10">clientSecret:</text>
+  <text x="760" y="275" text-anchor="middle" fill="#aaa" font-size="10">  name: github-oauth-secret</text>
+
+  <rect x="668" y="287" width="184" height="30" rx="6" fill="#1a2a1a" stroke="#4caf50" stroke-width="1"/>
+  <text x="760" y="307" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">Never stored in Git ✅</text>
+
+  <!-- Arrows -->
+  <!-- Vault → ESO -->
+  <line x1="252" y1="220" x2="328" y2="220" stroke="#ef7b4d" stroke-width="2" marker-end="url(#arr-orange)"/>
+  <text x="290" y="210" text-anchor="middle" fill="#ef7b4d" font-size="10">K8s auth</text>
+  <text x="290" y="222" text-anchor="middle" fill="#ef7b4d" font-size="10">reads secret</text>
+
+  <!-- ESO → K8s Secret -->
+  <line x1="572" y1="220" x2="648" y2="220" stroke="#4fc3f7" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="610" y="210" text-anchor="middle" fill="#4fc3f7" font-size="10">creates/updates</text>
+  <text x="610" y="222" text-anchor="middle" fill="#4fc3f7" font-size="10">every 1h</text>
+
+  <!-- Auth flow at bottom -->
+  <rect x="30" y="360" width="840" height="100" rx="10" fill="#ffffff08" stroke="#ffffff15" stroke-width="1"/>
+  <text x="450" y="385" text-anchor="middle" fill="#4fc3f7" font-size="12" font-weight="700">Kubernetes Auth Flow (ESO → Vault)</text>
+
+  <rect x="50" y="395" width="160" height="50" rx="6" fill="#1a0a00" stroke="#ef7b4d" stroke-width="1"/>
+  <text x="130" y="415" text-anchor="middle" fill="#ffcc80" font-size="10" font-weight="600">① ESO ServiceAccount</text>
+  <text x="130" y="430" text-anchor="middle" fill="#aaa" font-size="10">presents JWT token</text>
+  <text x="130" y="443" text-anchor="middle" fill="#aaa" font-size="9">to Vault k8s auth endpoint</text>
+
+  <line x1="212" y1="420" x2="248" y2="420" stroke="#ef7b4d" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+
+  <rect x="250" y="395" width="160" height="50" rx="6" fill="#1a0a00" stroke="#ef7b4d" stroke-width="1"/>
+  <text x="330" y="415" text-anchor="middle" fill="#ffcc80" font-size="10" font-weight="600">② Vault Validates</text>
+  <text x="330" y="430" text-anchor="middle" fill="#aaa" font-size="10">checks JWT against</text>
+  <text x="330" y="443" text-anchor="middle" fill="#aaa" font-size="9">OpenShift API server</text>
+
+  <line x1="412" y1="420" x2="448" y2="420" stroke="#ef7b4d" stroke-width="1.5" marker-end="url(#arr-orange)"/>
+
+  <rect x="450" y="395" width="160" height="50" rx="6" fill="#1a0a00" stroke="#ef7b4d" stroke-width="1"/>
+  <text x="530" y="415" text-anchor="middle" fill="#ffcc80" font-size="10" font-weight="600">③ Role Check</text>
+  <text x="530" y="430" text-anchor="middle" fill="#aaa" font-size="10">eso-role + eso-policy</text>
+  <text x="530" y="443" text-anchor="middle" fill="#aaa" font-size="9">allows read on secret/*</text>
+
+  <line x1="612" y1="420" x2="648" y2="420" stroke="#4caf50" stroke-width="1.5" marker-end="url(#arr-green)"/>
+
+  <rect x="650" y="395" width="200" height="50" rx="6" fill="#1a2a1a" stroke="#4caf50" stroke-width="1"/>
+  <text x="750" y="415" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">④ Secret Returned ✅</text>
+  <text x="750" y="430" text-anchor="middle" fill="#aaa" font-size="10">ESO writes to K8s Secret</text>
+  <text x="750" y="443" text-anchor="middle" fill="#aaa" font-size="9">in openshift-config namespace</text>
+</svg>

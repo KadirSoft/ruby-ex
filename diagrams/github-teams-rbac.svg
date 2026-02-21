@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4fc3f7"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="440" fill="url(#bg)" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">GitHub Teams → OpenShift RBAC Mapping</text>
+  <text x="450" y="58" text-anchor="middle" fill="#4fc3f7" font-size="12">GitHub org membership controls OpenShift access automatically</text>
+
+  <!-- GitHub Org -->
+  <rect x="30" y="80" width="230" height="300" rx="10" fill="#24292e" stroke="#4fc3f7" stroke-width="1.5"/>
+  <rect x="30" y="80" width="230" height="32" rx="10" fill="#1a1f25"/>
+  <text x="145" y="102" text-anchor="middle" fill="#4fc3f7" font-size="13" font-weight="700">GitHub Org: kadir-ocp</text>
+
+  <!-- Team 1 -->
+  <rect x="48" y="125" width="194" height="65" rx="6" fill="#1a2a1a" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="145" y="145" text-anchor="middle" fill="#4caf50" font-size="11" font-weight="600">👥 ocp-admins</text>
+  <text x="145" y="161" text-anchor="middle" fill="#aaa" font-size="10">Members: KadirSoft</text>
+  <text x="145" y="175" text-anchor="middle" fill="#aaa" font-size="10">Visibility: Public ⚠️ required</text>
+
+  <!-- Team 2 -->
+  <rect x="48" y="202" width="194" height="65" rx="6" fill="#1a2233" stroke="#0288d1" stroke-width="1.5"/>
+  <text x="145" y="222" text-anchor="middle" fill="#81d4fa" font-size="11" font-weight="600">👥 ocp-devs</text>
+  <text x="145" y="238" text-anchor="middle" fill="#aaa" font-size="10">Members: dev team</text>
+  <text x="145" y="252" text-anchor="middle" fill="#aaa" font-size="10">Access: dev namespaces</text>
+
+  <!-- Team 3 -->
+  <rect x="48" y="279" width="194" height="65" rx="6" fill="#1a1a1a" stroke="#607d8b" stroke-width="1.5"/>
+  <text x="145" y="299" text-anchor="middle" fill="#b0bec5" font-size="11" font-weight="600">👥 ocp-viewers</text>
+  <rect x="48" y="279" width="194" height="65" rx="6" fill="#1a1a1a" stroke="#607d8b" stroke-width="1.5"/>
+  <text x="145" y="299" text-anchor="middle" fill="#b0bec5" font-size="11" font-weight="600">👥 ocp-viewers</text>
+  <text x="145" y="315" text-anchor="middle" fill="#aaa" font-size="10">Members: readonly users</text>
+  <text x="145" y="329" text-anchor="middle" fill="#aaa" font-size="10">Access: read-only</text>
+
+  <!-- Arrows team 1 -->
+  <line x1="244" y1="157" x2="350" y2="157" stroke="#4caf50" stroke-width="2" marker-end="url(#arr-green)"/>
+  <!-- Arrows team 2 -->
+  <line x1="244" y1="235" x2="350" y2="235" stroke="#0288d1" stroke-width="2" marker-end="url(#arr)"/>
+  <!-- Arrows team 3 -->
+  <line x1="244" y1="312" x2="350" y2="312" stroke="#607d8b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- OpenShift Groups (middle) -->
+  <rect x="352" y="80" width="200" height="300" rx="10" fill="#1a0000" stroke="#cc0000" stroke-width="1.5"/>
+  <rect x="352" y="80" width="200" height="32" rx="10" fill="#b71c1c"/>
+  <text x="452" y="102" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">OpenShift Groups</text>
+  <text x="452" y="120" text-anchor="middle" fill="#ffcccc" font-size="10">Auto-created on first login</text>
+
+  <rect x="368" y="132" width="168" height="50" rx="6" fill="#2a0000" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="452" y="152" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">kadir-ocp:ocp-admins</text>
+  <text x="452" y="168" text-anchor="middle" fill="#aaa" font-size="10">users: [KadirSoft]</text>
+
+  <rect x="368" y="210" width="168" height="50" rx="6" fill="#2a0000" stroke="#0288d1" stroke-width="1.5"/>
+  <text x="452" y="230" text-anchor="middle" fill="#81d4fa" font-size="10" font-weight="600">kadir-ocp:ocp-devs</text>
+  <text x="452" y="246" text-anchor="middle" fill="#aaa" font-size="10">users: [dev members]</text>
+
+  <rect x="368" y="288" width="168" height="50" rx="6" fill="#2a0000" stroke="#607d8b" stroke-width="1.5"/>
+  <text x="452" y="308" text-anchor="middle" fill="#b0bec5" font-size="10" font-weight="600">kadir-ocp:ocp-viewers</text>
+  <text x="452" y="324" text-anchor="middle" fill="#aaa" font-size="10">users: [readonly]</text>
+
+  <!-- Arrows groups to rolebindings -->
+  <line x1="554" y1="157" x2="618" y2="157" stroke="#4caf50" stroke-width="2" marker-end="url(#arr-green)"/>
+  <line x1="554" y1="235" x2="618" y2="235" stroke="#0288d1" stroke-width="2" marker-end="url(#arr)"/>
+  <line x1="554" y1="312" x2="618" y2="312" stroke="#607d8b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- RoleBindings (right) -->
+  <rect x="620" y="80" width="250" height="300" rx="10" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1.5"/>
+  <rect x="620" y="80" width="250" height="32" rx="10" fill="#4527a0"/>
+  <text x="745" y="102" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">OpenShift RoleBindings</text>
+
+  <rect x="636" y="125" width="218" height="75" rx="6" fill="#1a2a1a" stroke="#4caf50" stroke-width="1.5"/>
+  <text x="745" y="145" text-anchor="middle" fill="#4caf50" font-size="10" font-weight="600">ClusterRoleBinding</text>
+  <text x="745" y="161" text-anchor="middle" fill="#aaa" font-size="10">Role: cluster-admin</text>
+  <text x="745" y="176" text-anchor="middle" fill="#aaa" font-size="10">Scope: entire cluster</text>
+  <text x="745" y="191" text-anchor="middle" fill="#81c784" font-size="10">Can do EVERYTHING ⚡</text>
+
+  <rect x="636" y="210" width="218" height="75" rx="6" fill="#1a2233" stroke="#0288d1" stroke-width="1.5"/>
+  <text x="745" y="230" text-anchor="middle" fill="#81d4fa" font-size="10" font-weight="600">RoleBinding</text>
+  <text x="745" y="246" text-anchor="middle" fill="#aaa" font-size="10">Role: admin</text>
+  <text x="745" y="261" text-anchor="middle" fill="#aaa" font-size="10">Scope: myproject namespace</text>
+  <text x="745" y="276" text-anchor="middle" fill="#81d4fa" font-size="10">Deploy/manage in myproject</text>
+
+  <rect x="636" y="295" width="218" height="65" rx="6" fill="#1a1a1a" stroke="#607d8b" stroke-width="1.5"/>
+  <text x="745" y="315" text-anchor="middle" fill="#b0bec5" font-size="10" font-weight="600">ClusterRoleBinding</text>
+  <text x="745" y="331" text-anchor="middle" fill="#aaa" font-size="10">Role: view</text>
+  <text x="745" y="346" text-anchor="middle" fill="#aaa" font-size="10">Scope: entire cluster (read-only)</text>
+
+  <!-- Commands at bottom -->
+  <rect x="30" y="400" width="840" height="28" rx="6" fill="#ffffff08"/>
+  <text x="450" y="419" text-anchor="middle" fill="#4fc3f7" font-size="10" font-weight="600">oc adm policy add-cluster-role-to-group cluster-admin kadir-ocp:ocp-admins  |  oc adm policy add-role-to-group admin kadir-ocp:ocp-devs -n myproject  |  oc adm policy add-cluster-role-to-group view kadir-ocp:ocp-viewers</text>
+</svg>

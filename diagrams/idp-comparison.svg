@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1117"/>
+      <stop offset="100%" style="stop-color:#1a1d2e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="900" height="380" fill="url(#bg)" rx="12"/>
+  <text x="450" y="38" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Identity Provider Comparison</text>
+  <text x="450" y="58" text-anchor="middle" fill="#4fc3f7" font-size="12">GitHub OAuth vs Enterprise AD/LDAP — Team Responsibilities</text>
+
+  <!-- Headers -->
+  <rect x="30" y="75" width="190" height="35" rx="6" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1.5"/>
+  <text x="125" y="98" text-anchor="middle" fill="#b39ddb" font-size="12" font-weight="700">Step</text>
+
+  <rect x="230" y="75" width="290" height="35" rx="6" fill="#24292e" stroke="#4fc3f7" stroke-width="1.5"/>
+  <text x="375" y="98" text-anchor="middle" fill="#4fc3f7" font-size="12" font-weight="700">GitHub OAuth (what we did)</text>
+
+  <rect x="530" y="75" width="340" height="35" rx="6" fill="#1a0000" stroke="#cc0000" stroke-width="1.5"/>
+  <text x="700" y="98" text-anchor="middle" fill="#ff8a80" font-size="12" font-weight="700">Enterprise AD/LDAP (production)</text>
+
+  <!-- Row 1 -->
+  <rect x="30" y="118" width="190" height="45" rx="4" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1"/>
+  <text x="125" y="136" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">Identity Source</text>
+  <text x="125" y="152" text-anchor="middle" fill="#888" font-size="10">IAM Team owns</text>
+
+  <rect x="230" y="118" width="290" height="45" rx="4" fill="#1a1f25" stroke="#4fc3f7" stroke-width="1"/>
+  <text x="375" y="136" text-anchor="middle" fill="#aaa" font-size="10">GitHub.com OAuth App</text>
+  <text x="375" y="152" text-anchor="middle" fill="#4caf50" font-size="10">clientID + clientSecret</text>
+
+  <rect x="530" y="118" width="340" height="45" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="700" y="136" text-anchor="middle" fill="#aaa" font-size="10">Active Directory / LDAP server</text>
+  <text x="700" y="152" text-anchor="middle" fill="#ff8a80" font-size="10">bindDN + bindPassword + CA cert</text>
+
+  <!-- Row 2 -->
+  <rect x="30" y="171" width="190" height="45" rx="4" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1"/>
+  <text x="125" y="189" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">OCP Admin Provides</text>
+  <text x="125" y="205" text-anchor="middle" fill="#888" font-size="10">to IAM Team</text>
+
+  <rect x="230" y="171" width="290" height="45" rx="4" fill="#1a1f25" stroke="#4fc3f7" stroke-width="1"/>
+  <text x="375" y="189" text-anchor="middle" fill="#aaa" font-size="10">OAuth callback URL:</text>
+  <text x="375" y="205" text-anchor="middle" fill="#4fc3f7" font-size="10">oauth-openshift.apps.ocp30.../oauth2callback/github</text>
+
+  <rect x="530" y="171" width="340" height="45" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="700" y="189" text-anchor="middle" fill="#aaa" font-size="10">OAuth URL + API URL for LDAP whitelist:</text>
+  <text x="700" y="205" text-anchor="middle" fill="#ff8a80" font-size="10">api.ocp30.ocppoc.net:6443</text>
+
+  <!-- Row 3 -->
+  <rect x="30" y="224" width="190" height="45" rx="4" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1"/>
+  <text x="125" y="242" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">Secret Storage</text>
+  <text x="125" y="258" text-anchor="middle" fill="#888" font-size="10">OCP Admin does</text>
+
+  <rect x="230" y="224" width="290" height="45" rx="4" fill="#1a1f25" stroke="#4fc3f7" stroke-width="1"/>
+  <text x="375" y="242" text-anchor="middle" fill="#aaa" font-size="10">Vault → ESO → github-oauth-secret</text>
+  <text x="375" y="258" text-anchor="middle" fill="#4caf50" font-size="10">in openshift-config namespace ✅</text>
+
+  <rect x="530" y="224" width="340" height="45" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="700" y="242" text-anchor="middle" fill="#aaa" font-size="10">Vault → ESO → ldap-bind-secret + ldap-ca-bundle</text>
+  <text x="700" y="258" text-anchor="middle" fill="#ff8a80" font-size="10">in openshift-config namespace</text>
+
+  <!-- Row 4 -->
+  <rect x="30" y="277" width="190" height="45" rx="4" fill="#1a1a2e" stroke="#7c4dff" stroke-width="1"/>
+  <text x="125" y="295" text-anchor="middle" fill="#b39ddb" font-size="10" font-weight="600">Group Management</text>
+  <text x="125" y="311" text-anchor="middle" fill="#888" font-size="10">Ongoing</text>
+
+  <rect x="230" y="277" width="290" height="45" rx="4" fill="#1a1f25" stroke="#4fc3f7" stroke-width="1"/>
+  <text x="375" y="295" text-anchor="middle" fill="#aaa" font-size="10">GitHub org/team membership</text>
+  <text x="375" y="311" text-anchor="middle" fill="#ffc107" font-size="10">⚠️ Membership must be PUBLIC</text>
+
+  <rect x="530" y="277" width="340" height="45" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="700" y="295" text-anchor="middle" fill="#aaa" font-size="10">AD group membership → oc adm groups sync</text>
+  <text x="700" y="311" text-anchor="middle" fill="#4caf50" font-size="10">✅ Auto-synced via CronJob every 30min</text>
+
+  <!-- Footer -->
+  <rect x="30" y="334" width="840" height="32" rx="6" fill="#ffffff08"/>
+  <text x="450" y="351" text-anchor="middle" fill="#4fc3f7" font-size="11" font-weight="600">Key Insight:</text>
+  <text x="540" y="351" fill="#aaa" font-size="11"> OCP Admin tasks are nearly identical for both — only the secret type and group sync method differs</text>
+</svg>
